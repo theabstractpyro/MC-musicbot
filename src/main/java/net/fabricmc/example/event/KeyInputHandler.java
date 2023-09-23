@@ -38,10 +38,12 @@ public class KeyInputHandler {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (startKey.wasPressed()) {
                 for (int i = 0; i < noteBlocks.size(); i++) {
-
+                    float newYaw = noteBlocks.get(i).getYaw();
+                    float newPitch = noteBlocks.get(i).getPitch();
+                    client.player.setYaw(newYaw);
+                    client.player.setPitch(newPitch);
                 }
-                client.player.setYaw(90);
-                client.player.setPitch(0);
+
                 KeyBinding usekey = client.options.useKey;
                 KeyBinding breakkey = client.options.attackKey;
                 usekey.setPressed(true);
