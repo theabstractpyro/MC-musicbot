@@ -37,14 +37,14 @@ public class KeyInputHandler {
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (startKey.wasPressed()) {
+                for (int i = 0; i < noteBlocks.size(); i++) {
+
+                }
                 client.player.setYaw(90);
                 client.player.setPitch(0);
                 KeyBinding usekey = client.options.useKey;
                 KeyBinding breakkey = client.options.attackKey;
                 usekey.setPressed(true);
-            }
-            if (true) {
-
             }
             if (logNoteblockKey.wasPressed()) {
                 i++;
