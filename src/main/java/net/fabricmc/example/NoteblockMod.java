@@ -1,4 +1,4 @@
-package net.fabricmc.example;
+/*package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -19,3 +19,4 @@ public class NoteblockMod implements ModInitializer {
 		LOGGER.info("Mod Started");
 	}
 }
+*/

@@ -19,7 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.NoteblockMod"
+      "net.fabricmc.example.world.NoteblockMod"
+    ],
+    "client": [
+      "net.fabricmc.example.world.NoteblockModClient"
     ]
   },
   "mixins": [
