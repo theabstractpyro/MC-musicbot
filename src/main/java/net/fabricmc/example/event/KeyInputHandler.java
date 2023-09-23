@@ -19,6 +19,7 @@ import java.util.HashMap;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
+import java.util.concurrent.TimeUnit;
 
 public class KeyInputHandler {
     public static final String KEY_CATEGORY = "START KEYBINDING";
@@ -37,16 +38,21 @@ public class KeyInputHandler {
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (startKey.wasPressed()) {
-                for (int i = 0; i < noteBlocks.size(); i++) {
-                    float newYaw = noteBlocks.get(i).getYaw();
-                    float newPitch = noteBlocks.get(i).getPitch();
+                for (PlayerPos noteBlock : noteBlocks) {
+                    float newYaw = noteBlock.getYaw();
+                    float newPitch = noteBlock.getPitch();
                     client.player.setYaw(newYaw);
                     client.player.setPitch(newPitch);
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
 
-                KeyBinding usekey = client.options.useKey;
-                KeyBinding breakkey = client.options.attackKey;
-                usekey.setPressed(true);
+//                KeyBinding usekey = client.options.useKey;
+//                KeyBinding breakkey = client.options.attackKey;
+//                usekey.setPressed(true);
             }
             if (logNoteblockKey.wasPressed()) {
                 i++;
